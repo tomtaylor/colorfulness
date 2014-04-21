@@ -1,7 +1,7 @@
 require 'chunky_png'
 require 'oily_png'
 
-module Colorful
+module Colorfulness
   class Calculator
 
     def initialize(image)

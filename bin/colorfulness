@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 
-require 'colorful'
+require 'colorfulness'
 
 if ARGV[0].nil?
   raise "No input path supplied"
 end
 
 image = ChunkyPNG::Image.from_file(ARGV[0])
-processor = Colorful::Calculator.new(image)
+processor = Colorfulness::Calculator.new(image)
 
 puts processor.colorfulness
