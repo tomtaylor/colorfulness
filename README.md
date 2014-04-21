@@ -1,4 +1,4 @@
-# Colorful
+# Colorfulness
 
 A Ruby library for calculating the colorfulness of an image, using a technique
 described in ["Measuring colourfulness in natural images" (Hasler and
@@ -11,7 +11,7 @@ For example:
 
 ```ruby
 image = ChunkyPNG::Image.from_file(path)
-calculator = Colorful::Calculator.new(image)
+calculator = Colorfulness::Calculator.new(image)
 puts image.colorfulness
 # 0.3207628365648987
 ```
