@@ -4,8 +4,12 @@ require 'oily_png'
 module Colorfulness
   class Calculator
 
-    def initialize(image)
+    # Initialize the Calculator with a ChunkyPNG::Image, and an optional
+    # background color to composite against, to remove the alpha component, if
+    # any.
+    def initialize(image, background_color = ChunkyPNG::Color::WHITE)
       @image = image
+      @background_color = background_color
     end
 
     # Technique from https://gist.github.com/zabela/8539116, a MATLAB
@@ -17,8 +21,13 @@ module Colorfulness
 
       (0...@image.width).each do |x|
         (0...@image.height).each do |y|
+          # Gets the integer RGB value
           pixel = @image.get_pixel(x, y)
-          rgb = ChunkyPNG::Color.to_truecolor_bytes(pixel)
+          # Compose the pixel against a background color to remove the alpha
+          # component.
+          flat_pixel = ChunkyPNG::Color.compose(pixel, @background_color)
+          rgb = ChunkyPNG::Color.to_truecolor_bytes(flat_pixel)
+          # Convert each component to float values between 0 and 1
           r, g, b = rgb.map { |c| c.to_f / ChunkyPNG::Color::MAX }
 
           rg << (r - g).abs
