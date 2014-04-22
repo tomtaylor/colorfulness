@@ -2,7 +2,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "colorfulness"
-  s.version     = "0.0.1"
+  s.version     = "0.0.2"
   s.authors     = ["Tom Taylor"]
   s.email       = ["tom@tomtaylor.co.uk"]
   s.homepage    = "https://github.com/tomtaylor/colorfulness"
